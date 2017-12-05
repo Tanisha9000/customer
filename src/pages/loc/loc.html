@@ -1,0 +1,80 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div>
+    <!-- <form style="padding-top: 20px;background: #000;">
+        
+        <ion-searchbar   
+        [(ngModel)]="autocomplete.query" 
+        name = "location.name"
+        [showCancelButton]="true" 
+        (ionInput)="updateSearch()" 
+        (ionCancel)="dismiss()"
+        placeholder="Enter location">
+        </ion-searchbar>
+       
+        <ion-list style="margin: 0px;">
+          <ion-item *ngFor="let place of autocompleteItems" 
+          (click)="selectPlace(place)">
+          {{ place.description }}
+          </ion-item>
+        </ion-list>
+    </form>
+    <div class="location">
+        <div class="inpt">
+            <ion-icon name="md-locate"></ion-icon>
+            <button (click)="geoloc()">USE MY CURRENT LOCATION</button>
+        </div>
+    </div> -->
+
+
+  <form class="myfrom">
+
+      <ion-list style="margin: 0px;">
+
+           <ion-searchbar   
+           [(ngModel)]="autocomplete.query" 
+           name = "location.name"
+           [showCancelButton]="true" 
+           (ionInput)="updateSearch()" 
+           (ionCancel)="dismiss()"
+           placeholder="Enter location"
+          >
+           </ion-searchbar>
+           
+         <ion-list style="margin: 0px;">
+            <ion-item *ngFor="let place of autocompleteItems" 
+            (click)="selectPlace(place)">
+            {{ place.description }}
+            </ion-item>
+          </ion-list>
+      </ion-list>
+    
+     </form>
+     
+      <div class="location">
+          <div class="inpt">
+              <ion-icon name="md-locate"></ion-icon>
+              <button (click)="geoloc()">USE MY CURRENT LOCATION</button>
+          </div>
+      </div>
+
+  <ion-item-group class="cat">
+    <ion-item-divider color="grey" class="nme">POPULAR LOCATIONS</ion-item-divider>
+    <ion-list style="margin: 0;">
+        <ion-item *ngFor="let item of vanues" (click)="exactevent(item?.lat, item?.lng);">
+          <p>{{item?.city}}</p>
+          
+        </ion-item>
+      </ion-list>
+</ion-item-group>
+</div>
+</ion-content>

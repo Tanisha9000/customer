@@ -1,0 +1,341 @@
+page-add {
+    
+       .action .button-inner {
+            color: #2281ff;
+            font-family: inherit;
+            font-size: 1.7rem;
+            line-height: 32px;
+            text-transform: capitalize;
+            font-weight: normal;
+        }
+    
+        .back-button-icon{
+            opacity: 0;
+        }
+        .toolbar-content{
+            width: 100%;
+            text-align: center;
+        }
+        .toolbar-ios ion-title{
+            position: unset !important;
+        }
+        .pic .item {
+            background: transparent;
+            border-bottom: 1px solid #dbdbdb !important;
+            border-top:0px !important;
+            padding-left: 8px;
+        }
+       .myeventdiv{
+        .label {
+            margin: 12px 0;
+        }  
+       } 
+        .pic, .titles{
+            float:left;
+            width:100%;
+            margin: 0;
+        
+        }
+        .toolbar-title{
+            padding: 0 12px;
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: #222222;
+        }
+        .titles{
+            margin-bottom:15px;
+        }
+        
+        .titles .item{
+            padding-left: 8px;
+            border-bottom: 1px solid #dbdbdb !important;
+            border-top:0px !important;
+        }
+        
+        .titles .text-input {
+            margin: 15px 8px 15px 0px !important;
+            font-size: 20px;
+            font-family: Opensans-Regular;
+        }
+        
+        .location {
+            // float:left;
+            // width:100%;
+            // margin-bottom: 15px;
+            // border-bottom: 1px solid #dbdbdb !important;
+            // border-top:1px solid #dbdbdb !important;
+            float: left;
+            width: 100%;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #dbdbdb !important;
+            border-top: 1px solid #dbdbdb !important;
+            padding: 0 12px;
+            background: #fff;
+        }
+        
+        .location .text-input {margin:0px;
+            font-size: 1.5rem;
+            font-family: Opensans-Regular;
+        }
+        
+        .location .item{
+            padding-left: 0;
+            border-bottom: 0px !important;
+            border-top: 0px !important;
+            min-height: 39px;
+        }
+        
+        .location .item-inner{
+            margin-right: 8px;
+            padding: 0 !important;
+        }
+        
+        .area .item-inner{padding: 0 !important;}
+        
+        .area .label{margin: 13px 0px;}
+        
+        .location textarea {
+            border: 0;
+            width: 100%;
+            float: left;
+            font-size: 1.5rem;
+            font-family: Opensans-Regular;
+            resize: vertical;
+            padding: 0;
+        }
+        .header .toolbar{
+            min-height: 44px !important;
+        }
+        .ticket {
+            float: left;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 8px 0px;
+        }
+        .ticket .grid{
+            padding-top: 0px;
+        }
+        
+        .heading {
+            // float: left;
+            // width: 100%;
+            // margin: 0;
+            // font-size: 13px;
+            // font-family: Opensans-Regular;
+            // padding-left: 8px;
+            // color:#728198;
+            float: left;
+            width: 100%;
+            margin: 0;
+            font-size: 14px;
+            font-family: inherit;
+            padding-left: 8px;
+            color: #6c7d99;
+            font-weight: 500;
+        }
+        
+        .ticket .col {
+            color: #222222 !important;
+            font-family: Opensans-Regular;
+            font-size: 13px;
+        }
+        
+        .ticket .button {
+            margin-left: 8px;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+            border-radius: 5px;
+            font-family: Opensans-Regular;
+            padding: 0 25px;
+            box-shadow: none;
+        }
+        .datetime-text {
+            color: #383838;
+            font-weight: 500;
+        }
+        .time {
+            float: left;
+            width: 99%;
+            border-bottom: 1px solid #dbdbdb;
+            margin: 0;
+            padding: 5px 0px;
+            background: #fff;
+        }
+          .lft {
+            float: left;
+            width: 50%;
+          }
+        
+          .lft h6 {
+            // margin: 0;
+            // text-transform: uppercase;
+            // font-family: Opensans-Semibold;
+            // font-size: 10px;
+            // color: #728198;
+            
+            margin: 0;
+            text-transform: uppercase;
+            font-family: inherit;
+            font-size: 11px;
+            color: #6c7d99;
+            margin-top: 4px;
+            font-weight: 600;
+    
+          }
+          .lft span {
+            color: #222222;
+            font-family: Opensans-Regular;
+            font-size: 12px;
+            float: left;
+            width: 100%;
+        }
+        
+        .lft button{
+            float: left;
+            width: auto;
+        }
+    
+        .datetime {
+            padding: 0px 9px 2px 0px;
+        }
+    
+        ion-select{
+            max-width: 100%;
+            width: 100%;
+            padding-left: 0 !important;
+        }
+        
+        .botom .toolbar {
+            min-height: 44px;
+        }
+    
+        .botom ion-buttons button{
+            width: 100%;
+            float: left;
+            font-family: Opensans-Regular;
+            text-transform: capitalize;
+        }
+    
+        .clk {
+            float: left;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #ccc;
+        }
+    
+        .clk .select{
+            padding-left: 8px !important;
+            padding-right: 16px !important;
+        }
+    
+        .clk button{
+            float: left;
+            height: auto;
+        }
+    
+        .select-ios .select-placeholder {
+            color: #ccc;
+            font-size: 1.5rem;
+        }
+    
+        .loc{
+            margin-bottom: 0px;
+            float: left;
+            width: 100%;
+        }
+    
+    .loc .item .item-inner{border-bottom: 0.55px solid #c8c7cc !important;}
+    
+        /****Input****/
+        
+            ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                color: #c5c5d1 !important;
+                opacity: 1 !important;
+              }
+              ::-moz-placeholder { /* Firefox 19+ */
+                color: #c5c5d1 !important;
+                opacity: 1 !important;
+              }
+              :-ms-input-placeholder { /* IE 10+ */
+                color: #c5c5d1 !important;
+                opacity: 1 !important;
+              }
+              :-moz-placeholder { /* Firefox 18- */
+                color: #c5c5d1 !important;
+                opacity: 1 !important;
+              }
+        
+              /****Input****/
+              
+              
+              .toolbar-ios ion-title{
+                   padding-top:0px;
+                   height:44px !important;
+                    min-height:44px !important;
+              }
+        
+        }
+        .action .button-inner {
+            color: #000;
+            font-family: opensans-semibold;
+            font-size: 1.2rem;
+            line-height: 32px;
+        }
+        .searchbar-ios {
+            padding: 0;
+            background: transparent;
+        }
+        .list-ios{
+            margin: 0;
+        }
+        .searchbar{
+            padding: 0; 
+        }
+        .searchbar .searchbar-input{
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            padding: 6px 0px;
+            border-bottom: 1px solid #dbdbdb;
+            border-radius: 2px;
+            background-position: left 8px center;
+            height: auto;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 3rem;
+            color: #141414;
+            background-color: #fff;
+            
+        }
+    
+    .searchbar-input-container{
+        .icon {
+            display: none;
+        }
+    }
+    
+    
+    
+        .searchbar-search-icon{
+            display: none;
+        }
+        .searchbar-ios.searchbar-left-aligned .searchbar-input{
+            padding-left: 8px;
+        }
+    
+    // Changes applied on 16 nov
+    .back-button.show-back-button {
+        color: #000;
+        width: 150px;
+        position: absolute;
+        left: -50px;
+    }
+    .bar-button-black-ios, .bar-button-default.bar-button-ios-black, .bar-button-clear-ios-black {
+        color: #000;
+        background-color: transparent;
+        position: absolute;
+        left: 10px;
+        top: -15px;
+    }

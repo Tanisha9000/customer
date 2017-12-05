@@ -1,0 +1,136 @@
+
+<ion-header style="background: rgba(0,0,0,0.3);">
+  
+    <ion-navbar>
+      <ion-title></ion-title>
+  
+      <ion-buttons end style="margin-right: 6px;">
+            <!-- <button ion-button icon-only *ngIf="details[0]?.is_liked==1" (click)="poplike(details[0]?.ID,0)">
+              <ion-icon style="color: #b76359;padding: 0;" name="heart"></ion-icon>
+            </button>
+             <button ion-button icon-only *ngIf="details[0]?.is_liked==0" (click)="poplike(details[0]?.ID,1)" >
+              <ion-icon style="padding: 0;" name="heart"></ion-icon>
+              </button> -->
+              <div class="heart_img" [hidden]="bit==0">
+                
+                 <div style="width: 38px; float: left;" *ngIf="details[0]?.is_liked==0" (click)="poplike(details[0]?.ID,1,$event)"> 
+                  <object class="colorchange" data="assets/img/icn_heartactive.svg" type="image/svg+xml" > 
+               
+                <img class="img2" src="assets/img/icn_heartactive.svg" />
+              </object>
+                 </div>
+              <div style="width: 38px; float: left;" *ngIf="details[0]?.is_liked==1" (click)="poplike(details[0]?.ID,0,$event)">
+              <object class="colorchange" data="assets/img/icn_heart.svg" type="image/svg+xml" >
+                
+                 <img class="img2" src="assets/img/icn_heart.svg" />
+               </object>
+              </div>
+              </div>
+      </ion-buttons>
+  
+        <ion-buttons end>
+            <button [hidden]="bit==0" ion-button icon-only (click)="shareInfo(guid)">
+              <ion-icon style="font-size: 32px;" name="ios-paper-plane-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+  
+        </ion-navbar>
+  
+        <!-- <ion-toolbar no-padding>
+            <div class="even" *ngFor="let eventsss of details">
+              <img [src]='eventsss.Eventimage'>
+              <div class="overlay"></div>
+            </div>
+          </ion-toolbar> -->
+  
+  </ion-header>
+  
+  <ion-content class="main main1">
+     <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>    
+      <div class="even" *ngFor="let eventsss of details">
+          <img [src]='eventsss.Eventimage'>
+        </div>
+
+      <ion-card no-margin class="txt" *ngFor="let eventsss of details" >
+      <div class="card-title">{{eventsss.EventStartDate| date:'EE,MMM d,hh:mm a '}} - {{eventsss.EventEndDate| date:'EE,MMM d,hh:mm a '}}</div>
+      <div class="card-subtitle">{{eventsss.post_title}}</div>
+      <div class="sidebar-box black" [ngStyle]="{'max-height': showmore}">
+          <p [innerHTML]='eventsss.post_content'>Malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <span class="read-more" [ngStyle]="{'position':showmoremorepos}"></span>
+          <!-- <div (click)="isCollapsed =! isCollapsed">Read more</div> -->
+        </div>
+        <button *ngIf="readles==1 && hidebutton==0" ion-button color="black" clear class="read" (click)="readmore();" >Read More</button>
+        <button *ngIf="readles==0 && hidebutton==0" ion-button color="black" clear class="read" (click)="readless();" >Read Less</button>
+      <!-- <p class="cnt" [innerHTML]='eventsss.post_content'></p> -->
+  
+        <!--<div class="mp"><img src="assets/img/map.png" /></div>-->
+        <div *ngIf="eventsss?.vanueaddress!=null" #map class="mp" ></div>
+    </ion-card >
+    <ion-list  *ngFor="let eventsss of details" class="km">
+        <ion-item *ngIf="eventsss?.vanueaddress!=null">
+          <h2>{{eventsss.Eventvanue}}</h2>
+          <!-- <h3>{{eventsss.vanueaddress}} </h3> -->
+          <ion-note item-end="" class="note" (click)="toggledis()" >{{dis}}</ion-note>
+          <!--<ion-note item-end="" class="note"  *ngIf='bit == 1' >{{dista}}MI</ion-note>-->
+        </ion-item>
+      </ion-list>
+  
+      <div class="production">
+        <!-- <div  *ngFor="let i of arr"> -->
+          <div class="pink"  width="100px;" [innerHTML]='vendor' (click)="producer(arr.vendorinfo.ID);">
+              <!--<img width="100px;" src="assets/img/pink.png" />-->
+          </div>
+        <!-- </div> -->
+          <h3>{{name}}</h3>
+          <!-- <span>{{length}} Events</span>  -->
+        </div>
+        
+  <div class="upcom"  >
+    <h4>UPCOMING EVENTS</h4>
+  <ion-list class="events" *ngFor="let eventssss of detailsss">
+      <ion-item class="name" (click)="scan(eventssss.ID);">
+        <ion-thumbnail item-start>
+          <div class="image-container">
+          <img [src]='eventssss.Eventimage'>
+        </div>
+        </ion-thumbnail>
+            <h3>{{eventssss.EventStartDate}} {{eventssss.viewcount}}</h3>
+            <h2>{{eventssss.post_title}}</h2>
+            <p>{{eventssss.Eventvanue}}</p>
+            <span class="ticket">{{eventssss.userticketcount}} Ticket</span>
+      </ion-item>
+    </ion-list>
+
+    <!-- <div class="event01" *ngFor="let eventssss of detailsss">
+      <div class="img_box" (click)="scan(eventssss.ID);">
+        <img [src]='eventssss.Eventimage'>
+      </div>
+      <div class="content00">
+        <h3>{{eventssss.EventStartDate}} {{eventssss.viewcount}}</h3>
+        <h2>{{eventssss.post_title}}</h2>
+        <p>{{eventssss.Eventvanue}}</p>
+        <span class="ticket">{{eventssss.userticketcount}}</span>
+      </div>
+    </div> -->
+
+  </div>
+
+  <div style="height:8vh; float:left;width:100%;"></div>
+  
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar style="background: #000;"  *ngIf="details[0]?.rsvpticket?.length > 0 || details[0]?.wooticket?.length > 0" >
+        <button  ion-button block color="primary" class="submit"(click)="ticket(ID)" style="box-shadow:none; background-color:#3979ed;">GET TICKETS</button>
+    </ion-toolbar>
+  </ion-footer>
+
+
+ 
+  

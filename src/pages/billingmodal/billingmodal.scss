@@ -1,0 +1,57 @@
+page-billingmodal {
+    .back-button {
+        display: block;
+    }
+    .form_box .item-inner {
+        border: 1px solid #ddd !important;
+        border-radius: 4px;
+        padding: 0 10px;
+    }
+    .form_box{
+        width: 100%;
+        float: left;
+    }
+    .form_box .item{
+        padding-left: 0px;
+    }
+    .form_box h4 {
+        width: 100%;
+        float: left;
+        margin: 0 0 5px 0;
+        color: #000;
+        font-size: 14px;
+        font-weight: normal;
+    }
+    .form_box h4 span{
+        color: #3979ed;
+    }
+    .select-icon-inner {
+        right: 5px !important;
+    }
+    .select{
+        max-width: 100%;
+        float: left;
+        width: 100%;
+        padding: 10px 0;
+        color: #a2a0a0;
+    }
+
+    .submit_btn {
+        width: 96%;
+        margin: auto;
+        display: block;
+        color: #fff;
+        background: #3979ed;
+    }
+
+    .list-ios > .item-block:last-child{border-top: 0px !important;border-bottom: 0px !important;}
+
+    .select-icon {
+        width: 18px !important;
+    }
+
+    .form_box .list{
+        margin-bottom: 10px;
+    }
+
+}

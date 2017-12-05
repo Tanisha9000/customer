@@ -1,0 +1,66 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-clipboard": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-calendar": {
+            "CALENDAR_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-stripe": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "io.outfwrk.starter"
+        }
+    }
+}

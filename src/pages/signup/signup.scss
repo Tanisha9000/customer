@@ -1,0 +1,35 @@
+page-signup {
+    .go .submit span {
+        font-family: Opensans-Regular;
+        font-size: 13px;
+    }
+
+    .go button:nth-child(1) {
+        margin-bottom: 25px;
+    }
+
+.go{
+    width:100%;
+    float: left;
+    padding: 0px 25px;
+}
+
+    .line {
+        float: left;
+        width: 100%;
+        color: #3979ed;
+        text-align: center;
+        font-family: Opensans-Regular;
+        font-size: 21px;
+        margin: 50px 0px;
+    }
+
+    .logo {
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin: 85px 0px 0px;
+    }
+
+
+}

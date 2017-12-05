@@ -1,0 +1,209 @@
+page-editpage {
+    .pic .item {
+        background: transparent;
+        border-bottom: 1px solid #dbdbdb !important;
+        border-top:0px !important;
+        padding-left: 8px;
+    }
+    
+    .pic, .titles{
+        float:left;
+        width:100%;
+        margin: 0;
+    
+    }
+    
+    .titles{
+        margin-bottom:15px;
+    }
+    
+    .titles .item{
+        padding-left: 8px;
+        border-bottom: 1px solid #dbdbdb !important;
+        border-top:0px !important;
+    }
+    
+    .titles .text-input {
+        margin: 15px 8px 15px 0px !important;
+        font-size: 20px;
+        font-family: Opensans-Regular;
+    }
+    
+    .location {
+        float:left;
+        width:100%;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #dbdbdb !important;
+        border-top:1px solid #dbdbdb !important;
+    }
+    
+    .location .text-input {margin:0px;
+        font-size: 14px;
+        font-family: Opensans-Regular;
+    }
+    
+    .location .item{
+        padding-left: 8px;
+        border-bottom: 0px !important;
+        border-top:0px !important;
+        min-height: 32px;
+    }
+    
+    .location .item-inner{
+        margin-right: 8px;
+        padding: 0 !important;
+    }
+    
+    .area .item-inner{padding: 0 !important;}
+    
+    .area .label{margin: 13px 0px;}
+    
+    .location textarea {
+        border: 0;
+        width: 100%;
+        float: left;
+        font-size: 14px;
+        font-family: Opensans-Regular;
+        resize: vertical;
+    }
+    
+    .ticket {
+        float: left;
+        width: 100%;
+        background: #fff;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    
+    .heading {
+        float: left;
+        width: 100%;
+        margin: 0;
+        font-size: 13px;
+        font-family: Opensans-Regular;
+        padding-left: 8px;
+        color:#728198;
+    }
+    
+    .ticket .col {
+        color: #222222 !important;
+        font-family: Opensans-Regular;
+        font-size: 13px;
+    }
+    
+    .ticket .button {
+        margin-left: 8px;
+        margin-bottom: 8px;
+        text-transform: capitalize;
+        border-radius: 5px;
+        font-family: Opensans-Regular;
+        padding: 0 25px;
+        box-shadow: none;
+    }
+    
+    .time {
+        float: left;
+        width: 99%;
+        border-bottom: 1px solid #dbdbdb;
+        margin: 0;
+        padding: 5px 8px;
+        background: #fff;
+    }
+      .lft {
+        float: left;
+        width: 50%;
+      }
+    
+      .lft h6 {
+        margin: 0;
+        text-transform: uppercase;
+        font-family: Opensans-Semibold;
+        font-size: 10px;
+        color: #728198;
+      }
+      .lft span {
+        color: #222222;
+        font-family: Opensans-Regular;
+        font-size: 12px;
+        float: left;
+        width: 100%;
+    }
+    
+    .lft button{
+        float: left;
+        width: auto;
+    }
+
+    .datetime{
+        padding: 13px 8px 13px 0px;
+    }
+
+    ion-select{
+        max-width: 100%;
+        width: 100%;
+        padding-left: 0 !important;
+    }
+    
+    .botom .toolbar {
+        min-height: 44px;
+    }
+
+    .botom ion-buttons button{
+        width: 100%;
+        float: left;
+        font-family: Opensans-Regular;
+        text-transform: capitalize;
+    }
+
+    .clk {
+        float: left;
+        width: 100%;
+        background: #fff;
+        border-top: 1px solid #ccc;
+    }
+
+    .clk .select{
+        padding-left: 8px !important;
+        padding-right: 16px !important;
+    }
+
+    .clk button{
+        float: left;
+        height: auto;
+    }
+
+    .select-ios .select-placeholder {
+        color: #ccc;
+        font-size: 15px;
+    }
+
+    .loc{
+        margin-bottom: 0px;
+        float: left;
+        width: 100%;
+    }
+
+.loc .item .item-inner{border-bottom: 0.55px solid #c8c7cc !important;}
+
+    /****Input****/
+    
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #c5c5d1 !important;
+            opacity: 1 !important;
+          }
+          ::-moz-placeholder { /* Firefox 19+ */
+            color: #c5c5d1 !important;
+            opacity: 1 !important;
+          }
+          :-ms-input-placeholder { /* IE 10+ */
+            color: #c5c5d1 !important;
+            opacity: 1 !important;
+          }
+          :-moz-placeholder { /* Firefox 18- */
+            color: #c5c5d1 !important;
+            opacity: 1 !important;
+          }
+    
+          /****Input****/
+}

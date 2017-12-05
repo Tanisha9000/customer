@@ -1,0 +1,189 @@
+page-edit {
+    
+        .form_box{
+            height:100vh;
+            position: absolute;
+            width:100%;
+            top:0;
+        }
+    
+        .header {
+    
+            top: 0 !important;
+            padding-top: 20px;
+            background: #fff;
+        }
+        
+        .change_email {
+            width: 150px;
+            position: relative;
+            z-index: 1;
+            right: 0;
+            top: 5px;
+            bottom: 0;
+            margin: auto;
+            height: 27px;
+            text-transform: capitalize;
+            border: 1px solid #000;
+            background: transparent;
+        }
+        .action .bar-button-ios{
+            border:none;
+        }
+        .dff {
+            width: 100%;
+            float: left;
+            position: relative;
+            background: #fff;
+            margin-bottom: 12px;
+            padding-bottom: 12px
+        }
+        
+            .edit .icon {
+                position: relative;
+              }
+              .edit .icon img {
+                left: -2px !important;
+                bottom: 0 !important;
+                right: 0 !important;
+                margin: auto !important;
+                top: 0 !important;
+                min-width: 30px !important;
+                height:auto !important;
+                border-radius: 0px  !important;
+              }
+        
+        .action .button-inner{
+            color: #000;
+            font-family: opensans-semibold;
+            text-transform: capitalize;
+            font-size: 1.2rem;
+           line-height: 32px;
+        }
+        
+        
+        .pic {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: 20px auto 0;
+            float: left;
+        }
+        .pic > .list{
+            width: 100%;
+            float: left;
+            position: relative;
+            margin: 0;
+        }
+        .pic img {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 50%;
+        }
+        
+        .edit .item .item-inner {
+            margin: 0 !important;
+        }
+        
+        .list .item-input:last-child {
+            border-bottom: 0px;
+            padding-left: 0px;
+        }
+        
+        .list .item-input:last-child .item-inner {
+            border: 0;
+        }
+        
+        // .list-md .item-input.item-input-has-focus:last-child,
+        // .list-md .item-input.input-has-focus:last-child {
+        //   border-bottom-color: transparent;
+        //  -webkit-box-shadow: none;
+        //   box-shadow:none;
+        // }
+        
+        .edit .input .text-input {
+            font-family: opensans-regular;
+            font-size: 14px;
+        }
+        
+        .head {
+            font-family: opensans-semibold;
+            color: #9c9c9c;
+            font-size: 11px;
+            text-transform: uppercase;
+            padding-left: 16px;
+            margin: 8px 0;
+            text-align: left;
+        }
+        
+        .confirm{
+            font-family: opensans-regular;
+        text-transform: capitalize;
+        padding: 0 0.4em;
+        }
+        
+        .change {
+            text-align: center;
+            width: 100%;
+            float: left;
+            text-transform: capitalize;
+            font-family: opensans-regular;
+            font-size: 1.4rem;
+        }
+        
+        .back-button{color:#000;}
+        
+        .back-button-text{opacity: 0;}
+        
+        .done button{
+            width: 40%;
+            margin: 0 auto 15px;
+            height: 36px;
+            display: block;
+            text-align: center;
+        }
+        
+        .edit{
+            margin-bottom: 0px;
+        }
+        .inputbtn{float: left;
+            text-align: left;
+            width: 100%;
+            background: #fff;
+            height: 1.6em;
+            margin-top: 0 !important;
+            margin-bottom: 18px;
+            font-size: 1.4rem;
+        span{
+            float: left;
+            text-align: left;
+            align-items: self-start;
+            justify-content: left;
+        }
+    }
+        }
+        // Changes applied 15nov
+        page-edit .action .bar-button-ios.activated{
+            background-color: transparent;
+            color: #000;
+    
+        }
+    .myfrom {
+            background: #000;
+            padding: 7px 8px;
+            margin-top: 25px;
+        }
+        .headerimg {
+          
+            top: 15px !important;
+    
+        }
+        page-getevents .tag {
+            width: 39% !important;
+        }

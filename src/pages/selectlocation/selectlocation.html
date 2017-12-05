@@ -1,0 +1,57 @@
+
+<ion-content>
+  <div>
+ <!--<form [formGroup]="search" (ngSubmit)="updateSearch(search)">-->
+  
+  <ion-searchbar [(ngModel)]="autocomplete.query" 
+[showCancelButton]="true" 
+(ionInput)="updateSearch()" 
+(ionCancel)="dismiss()"
+placeholder="Enter location "></ion-searchbar>
+ 
+ <!--</form>-->
+ <ion-list>
+<ion-item *ngFor="let item of autocompleteItems" 
+(click)="chooseItem(item)">
+{{ item.description }}
+</ion-item>
+</ion-list>
+  <!--<form [formGroup]="search" (ngSubmit)="updateSearch(search)">-->
+    <ion-buttons end (click)="closeModal()">
+        <button clear ion-button>Save</button>
+    </ion-buttons>
+
+  <!--<div class="location">
+    <div class="inpt">
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      <ion-input type="text" placeholder="Username"></ion-input>
+    </div>
+  </div>-->
+
+  <a class="locat"   (click)="getlocation();"><ion-icon name="locate"></ion-icon>USE MY CURRENT LOCATION</a>
+
+  <ion-list style="margin: 0;">
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+
+  <ion-item-group class="cat"  >
+    <ion-item-divider color="grey" class="nme" >POPULAR LOCATION</ion-item-divider>
+    <ion-list class="cat" *ngFor="let placess of placess">
+    <ion-item>{{placess.post_title}}</ion-item>
+    </ion-list>
+    <!--<ion-item>Business</ion-item>
+    <ion-item>Food Drink</ion-item>
+    <ion-item>Community</ion-item>
+    <ion-item>Arts</ion-item>
+    <ion-item>Film & Media</ion-item>
+    <ion-item>Sports & Fitness</ion-item>
+    <ion-item>Health</ion-item>
+    <ion-item>Science & Tech</ion-item>
+    <ion-item>Travel & Outdoor</ion-item>
+    <ion-item>Charty & Causes</ion-item>-->
+  </ion-item-group>
+</div>
+</ion-content>
+

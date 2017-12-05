@@ -1,0 +1,31 @@
+
+<ion-header>
+    <ion-navbar>
+      <ion-title><img width="120px" src="assets/img/logob.png" /></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="arrow-dropdown"
+    pullingText="Pull to refresh"
+    refreshingSpinner="circles"
+    refreshingText="Refreshing...">
+   </ion-refresher-content>
+  </ion-refresher>   -->
+<div class="seg_cnt">
+    <ion-list class="events" >
+      <ion-item class="name" *ngFor="let item of eventss" (click)="next(item.ID);">
+        <ion-thumbnail item-start>
+          <img [src] ='item.Eventimage' />
+        </ion-thumbnail>
+           <h3>{{item.post_title}}</h3>
+            <h3>Starts : {{item.EventStartDate}}</h3>
+            <h3>Ends :{{item.EventEndDate}}</h3>
+             <p>{{item.Eventvanue}}</p>
+            <!-- <span class="ticket">{{item.ticket}} ticket</span> -->
+      </ion-item>
+    </ion-list>
+</div>
+</ion-content>

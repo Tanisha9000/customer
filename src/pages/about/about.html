@@ -1,0 +1,83 @@
+
+<ion-content>
+  <div>
+ <form class="myfrom">
+  
+  <!-- <ion-searchbar   
+  [(ngModel)]="autocomplete.query" 
+  name = "location.name"
+  [showCancelButton]="true" 
+  (ionInput)="updateSearch()" 
+  (ionCancel)="dismiss()"
+  placeholder="Start typing and select ...">
+  </ion-searchbar> -->
+ 
+  <!-- <ion-list style="margin: 0px;">
+    <ion-item *ngFor="let place of autocompleteItems" 
+    (click)="selectPlace(place)">
+    {{ place.description }}
+    </ion-item>
+  </ion-list> -->
+  <ion-list style="margin: 0px;">
+      <!-- <input (keyup)="onKey($event)"  [(ngModel)]="val" name='val' placeholder="Search events" >  -->
+       <ion-searchbar   
+        (keyup)="onKey($event)"  [(ngModel)]="val" name='val'
+        placeholder="Search events"
+        [showCancelButton]="true" 
+        (ionCancel)="dismiss()"
+        class="mysearchbar">
+       </ion-searchbar>
+       
+     <ion-list style="margin: 0px;">
+        <ion-item *ngFor="let place of itemss" (click)="selectPlace(place.ID);">
+        {{place.post_title}}
+        </ion-item>
+      </ion-list>
+  </ion-list>
+
+ </form>
+ 
+  <div class="location">
+    <div class="inpt">
+        <ion-icon name="md-locate"></ion-icon>
+      <!--<ion-input type="text" placeholder="Current Location"></ion-input>-->
+        <!-- <a class="locat" (click)="getlocation()"><ion-icon name="locate"></ion-icon>USE MY CURRENT LOCATION</a> -->
+      <button (click)="geoloc()">Current Location</button>
+    </div>
+  </div>
+
+  <ion-list style="margin: 0;">
+    <ion-item *ngFor="let item of items">
+      {{item}}
+    </ion-item>
+  </ion-list>
+
+  <ion-item-group class="cat">
+      <ion-item-divider color="grey" class="nme">DISCOVER</ion-item-divider>
+      <ion-list style="margin: 0;" *ngIf="name !=undefined">
+          <ion-item *ngFor="let category of objectdata(name)" (click)='exactevent(name[category]?.term_taxonomy_id,name[category]?.name)'>
+            <p>{{name[category]?.name}}</p>
+            
+          </ion-item>
+        </ion-list>
+  </ion-item-group>
+  <!-- <ion-list style="margin-bottom:0px;"  class="clk" *ngIf="name !=undefined">
+      <ion-select  placeholder="Category" [(ngModel)]="data.categoryy" name ='categoryy'>
+           <ion-option *ngFor="let category of objectdata(name)" >{{name[category].name}}</ion-option> 
+      </ion-select>
+    </ion-list> -->
+    
+    <!-- <ion-item>Music</ion-item>
+    <ion-item>Business</ion-item>
+    <ion-item>Food Drink</ion-item>
+    <ion-item>Community</ion-item>
+    <ion-item>Arts</ion-item>
+    <ion-item>Film & Media</ion-item>
+    <ion-item>Sports & Fitness</ion-item>
+    <ion-item>Health</ion-item>
+    <ion-item>Science & Tech</ion-item>
+    <ion-item>Travel & Outdoor</ion-item>
+    <ion-item>Charty & Causes</ion-item> -->
+  
+</div>
+</ion-content>

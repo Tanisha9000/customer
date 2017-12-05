@@ -1,0 +1,14 @@
+{
+    "EventKit.framework": 1,
+    "EventKitUI.framework": 1,
+    "ImageIO.framework": 1,
+    "CoreLocation.framework": 2,
+    "AVFoundation.framework": 2,
+    "Social.framework": 1,
+    "MessageUI.framework": 1,
+    "libiconv.dylib": 1,
+    "CoreVideo.framework": 1,
+    "QuartzCore.framework": 1,
+    "CoreImage.framework": 1,
+    "AudioToolbox.framework": 1
+}

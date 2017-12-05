@@ -1,0 +1,95 @@
+
+<ion-content style="background: #f0f0f0;">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>  
+     
+    <div class="main">
+      <div class="pic" [innerHTML]='this?.name?.user_img'>
+        
+        <!--<img src="assets/img/event1.jpg" />-->
+      
+      </div>
+      <h3>{{name?.meta.first_name[0]}}</h3>
+      <p>{{name?.meta.description[0]}}</p>
+      <button ion-button icon-left clear small class="social" *ngIf="name?.meta.facebook != undefined">
+        <ion-icon name="logo-facebook" color="black"></ion-icon>
+        {{name?.meta.facebook[0]}}
+      </button>
+      <button ion-button icon-left clear small  class="social" *ngIf="name?.meta.instagram != undefined">
+          <ion-icon name="logo-instagram" color="black"></ion-icon>
+          {{name?.meta.instagram[0]}}
+      </button>
+      <div class="top">
+          <button [hidden]="name?.user_data?.caps?.vendor != true" ion-button color="" small (click)="edit(vendorid);">Edit Events</button>
+            <button ion-button color="dark" small (click)="editPage();">Edit Profile</button>
+            <button ion-button color="dark" small (click)="settingPage();"><ion-icon ios="md-settings" md="md-settings"></ion-icon></button>
+      </div>
+    </div><!--main-->
+  
+  <div class="seg">
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="Tickets">
+        <!-- <span [hidden]="pet=='Liked'">{{pet}}</span> -->
+        Tickets
+      </ion-segment-button>
+      <ion-segment-button value="Liked">
+        <!-- <span [hidden]="pet=='Tickets'">{{pet}}</span> -->
+        Liked
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div class="seg_cnt">
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'Tickets'" class="events">
+      <ion-item class="name" *ngFor="let item of details" (click)="scan(item.ID);">
+        <ion-thumbnail item-start>
+          <div class="image-container">
+          <img [src] ='item.Eventimage' />
+        </div>
+        </ion-thumbnail>
+            <h3>{{item._EventStartDate}}</h3>
+            <h2>{{item.post_title}}</h2>
+            <p>{{item.Eventvanue}}</p>
+            <span class="ticket">{{item.ticket}} ticket</span>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'Liked'" class="events">
+      <ion-item class="name" *ngFor="let item1 of detailss">
+        <ion-thumbnail item-start>
+            <div class="image-container">
+          <img [src]='item1.Eventimage' />
+          </div>
+        </ion-thumbnail>
+            <h3>{{item1.post_date}}</h3>
+            <h2>{{item1.post_title}}</h2>
+            <p>{{item1.Eventvanue}}</p>
+            <!-- <p>{{item._EventEndDate| date:'MMM d,hh:mm a '}}</p> -->
+            <!-- <span class="ticket">{{item1.ticket}}ticket</span> -->
+            <!-- <ion-icon name="ios-heart" class="heart"></ion-icon> -->
+            <div class="heart_img">
+                <!-- <object class="colorchange" data="assets/img/icn_heartactive.svg" type="image/svg+xml"  (click)="poplike(item1.ID)"> 
+                  <img class="img2" src="assets/img/icn_heartactive.svg" />
+               </object> -->
+               <object class="colorchange" data="assets/img/icn_heart.svg" type="image/svg+xml" (click)="poplike(item1.ID)">
+                
+                 <img class="img2" src="assets/img/icn_heart.svg" />
+               </object>
+  
+              
+              </div><!--heart_img-->
+      </ion-item>
+    </ion-list><!--liked end-->
+  
+  </div>
+  </div>
+
+</ion-content>
+  

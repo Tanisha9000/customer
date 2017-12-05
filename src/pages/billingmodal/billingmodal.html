@@ -1,0 +1,104 @@
+
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title>Billing Details</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content >
+     
+  <div class="form_box">
+      <form #billForm='ngForm' (ngSubmit)="updatedata(billForm)">
+  
+          <ion-list>
+        <ion-grid style="padding:0px;">
+            <ion-row>
+              <ion-col col-6>
+                  <h4>First Name<span>*</span></h4>
+                  <ion-item>
+                      <ion-input type="text" value="" placeholder="First Name" [(ngModel)]="data.billing_first_name" name= "billing_first_name" required></ion-input>
+                    </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                  <h4>Last Name<span>*</span></h4>
+                <ion-item>
+                  <ion-input type="text" placeholder="Last Name" [(ngModel)]="data.billing_last_name" name= "billing_last_name" required></ion-input>
+                </ion-item></ion-col>
+  
+                <ion-col col-12 >
+                    <h4>Country<span>*</span></h4>
+                    <ion-list style="margin-bottom:0px;"  >
+                        <ion-item  *ngIf="countries !=null">
+                          <ion-select [(ngModel)]="data.billing_country" name= "billing_country" #billing_country="ngModel" required>
+                            <ion-option *ngFor="let item of obkeys(countries)" [value]="item">{{countries[item]}}</ion-option>
+                           
+                          </ion-select>
+                        </ion-item>
+                      </ion-list>
+                </ion-col>
+  
+                <ion-col col-12>
+                    <h4>Address 1:<span>*</span></h4>
+                  <ion-item>
+                    <ion-input type="text" placeholder="Address 1" [(ngModel)]="data.billing_address_1 " name= "billing_address_1" required></ion-input>
+                  </ion-item></ion-col>
+  
+                  <ion-col col-12>
+                      <h4>Address 2:<span>*</span></h4>
+                    <ion-item>
+                      <ion-input type="text" placeholder="Address 2" [(ngModel)]="data.billing_address_2" name= "billing_address_2" required></ion-input>
+                    </ion-item></ion-col>
+  
+                  <ion-col col-12>
+                      <h4>City/Town<span>*</span></h4>
+                    <ion-item>
+                      <ion-input type="text" placeholder="Town / City" [(ngModel)]="data.billing_city" name= "billing_city" required></ion-input>
+                    </ion-item></ion-col>
+  
+                    <!-- <ion-col col-12>
+                        <h4>State<span>*</span></h4>
+                        <ion-list style="margin-bottom:0px;">
+                            <ion-item>
+                              <ion-select [(ngModel)]="bill_state" name= "state">
+                                <ion-option value="nes">NES</ion-option>
+                                <ion-option value="n64">Nintendo64</ion-option>
+                                <ion-option value="ps">PlayStation</ion-option>
+                              </ion-select>
+                            </ion-item>
+                          </ion-list>
+                    </ion-col> -->
+  
+                    <ion-col col-12>
+                        <h4>PostCode<span>*</span></h4>
+                      <ion-item>
+                        <ion-input type="text" placeholder="ZIP" [(ngModel)]=" data.billing_postcode" name= "billing_postcode" required></ion-input>
+                      </ion-item></ion-col>
+  
+                      <ion-col col-6>
+                          <h4>Phone<span>*</span></h4>
+                          <ion-item>
+                              <ion-input type="number" value="" placeholder="Phone" [(ngModel)]= "data.billing_phone" name= "billing_phone" required></ion-input>
+                            </ion-item>
+                      </ion-col>
+                      <ion-col col-6>
+                          <h4>Email Address<span>*</span></h4>
+                        <ion-item>
+                          <ion-input type="text" placeholder="Email Address" [(ngModel)]="data.billing_email" name= "billing_email" required></ion-input>
+                        </ion-item></ion-col>
+            </ion-row>
+          </ion-grid>
+          </ion-list>
+  
+          <button [disabled]="!billForm.valid" ion-button block class="submit_btn" >Save</button>
+  
+          <div style="height:8vh;float:left;width:100%;"></div>
+  
+          </form>
+        </div>
+  
+    
+  </ion-content>
+  

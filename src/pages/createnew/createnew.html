@@ -1,0 +1,48 @@
+
+<div class="int_edt" style="background: #232123;width:100%;float:left;height:100%;">
+  <div class="logo" (click)="loginPage();"><img src="assets/img/logoc.png" /></div>
+  
+  <p class="line" color="primary">Create new account</p>
+
+<form padding (ngSubmit)="login(heroForm)" #heroForm="ngForm">
+
+  <ion-list class="log">
+   
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" placeholder="Enter Email" [(ngModel)]="data.email" name="email" #email="ngModel" [readonly]="true" required ></ion-input>
+    </ion-item>
+    <!-- <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+    <div [hidden]="!email.errors.required" class="alert alert-danger">
+       Email Address is required
+      </div>
+       <div [hidden]="!email.errors.pattern" class="alert alert-danger">
+        Enter a valid Email Address
+      </div>
+  </div> -->
+  <ion-item class="lft">
+      <ion-label>First name</ion-label>
+      <ion-input type="text" placeholder="Enter Firstname" [(ngModel)]="data.username" name="username" #password="ngModel" required ></ion-input>
+  </ion-item>
+  <ion-item class="lft">
+      <ion-label>Last name</ion-label>
+      <ion-input type="text" placeholder="Enter Lastname" [(ngModel)]="data.lastname" name="lastname" #password="ngModel" required ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" placeholder="Enter Password" [(ngModel)]="data.password" name="password" #password="ngModel"  required></ion-input>
+  </ion-item>
+    <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+    <div [hidden]="!password.errors.required  " class="alert alert-danger">
+      Password is required
+    </div>
+  </div>
+</ion-list>
+
+<p class="terms">By signing up, I agree to OutBuzz's <span>terms of service</span>,<span>privacy policy</span>, and <span>community guidelines</span>.</p>
+
+<button ion-button block class="submit"  [disabled]="!heroForm.valid">SIGN UP</button>
+ 
+</form>
+ 
+</div>

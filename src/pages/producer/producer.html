@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar > 
+      <ion-title>Event Organizer Profile</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content style="background: #f0f0f0;">
+     <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>  
+  <div class="main">
+    <div class="pic" [innerHTML]='this?.name?.user_img'>
+      
+        
+      <!--<img src="assets/img/event1.jpg" />-->
+    
+    </div>
+    <h3>{{name?.meta.first_name[0]}}</h3>
+    <p>{{name?.meta.description[0]}}</p>
+    <button ion-button icon-left clear small class="social" *ngIf="name?.meta.facebook != undefined">
+      <ion-icon name="logo-facebook" color="black"></ion-icon>
+      {{name?.meta.facebook[0]}}
+    </button>
+    <button ion-button icon-left clear small  class="social" *ngIf="name?.meta.instagram != undefined">
+        <ion-icon name="logo-instagram" color="black"></ion-icon>
+        {{name?.meta.instagram[0]}}
+    </button>
+    <div class="top">
+          <button [hidden]="usrid!=vendorid" ion-button color="dark" small (click)="edit(vendorid);">Edit Events</button>
+          <button [hidden]="usrid!=vendorid" ion-button color="dark" small (click)="editPage(vendorid);">Edit Profile</button>
+          <button [hidden]="usrid!=vendorid" ion-button color="dark" small (click)="settingPage();"><ion-icon ios="md-settings" md="md-settings"></ion-icon></button>
+    </div>
+  </div><!--main-->
+
+<div class="seg">
+  <ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="Upcoming">
+      Upcoming Events
+    </ion-segment-button>
+    <ion-segment-button value="Past">
+      Past Events
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div class="seg_cnt">
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'Upcoming'" class="events">
+    <ion-item class="name" *ngFor="let item of details" (click)="upcoming(item.ID);">
+      <ion-thumbnail item-start>
+        <div class="image-container">
+        <img [src]='item.Eventimage' />
+      </div>
+      </ion-thumbnail>
+          <h3>{{item.EventStartDate}}</h3>
+          <h2>{{item.post_title}}</h2>
+          <p>{{item.Eventvanue}}</p>
+        
+    </ion-item>
+
+  </ion-list><!--Upcoming end-->
+
+  <ion-list *ngSwitchCase="'Past'">
+    <ion-item class="name" *ngFor="let item1 of arr1">
+      <ion-thumbnail item-start>
+          <div class="image-container">
+        <img [src]='item1.Eventimage' />
+        </div>
+      </ion-thumbnail>
+          <h3>{{item1.EventStartDate}}</h3>
+          <h2>{{item1.post_title}}</h2>
+          <p>{{item1.Eventvanue}}</p>
+      
+    </ion-item>
+  </ion-list><!--Past end-->
+
+</div>
+</div>
+
+</ion-content>

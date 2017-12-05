@@ -1,0 +1,55 @@
+<ion-header>
+  
+    <ion-navbar>
+        <ion-buttons start left  primary class= "action">
+        <button ion-button color="black" clear (click)="previous();">
+          Cancel 
+        </button>
+        </ion-buttons>
+      <ion-title>Create Ticket</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content  style="background: #fafafa;">
+      <h3 class="heading">Add event ticket</h3>
+      <ion-list class="location">
+  
+          <ion-item>
+            <ion-input type="text" placeholder="Ticket Name" [(ngModel)]="data.post_title" name= "post_title"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-input type="text" placeholder="Description" [(ngModel)]="data.post_description" name= "post_description"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-input type="number" placeholder="Price" [(ngModel)]="data.price" name= "price"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-input type="number" placeholder="Stock" [(ngModel)]="data.stock" name= "stock"></ion-input>
+          </ion-item>
+
+           <div class="time">
+              <div class="lft">
+<!--                <h6>Starts</h6>-->
+                <span><ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="data.startdate" name= "startdate" max="{{data.enddate}}" min="{{data.startdate}}"  placeholder="Sales Start"></ion-datetime></span>
+              </div>
+              <div class="lft rt">
+<!--                <h6>Ends</h6>-->
+                <span><ion-datetime  displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="data.enddate" name= "enddate" max="{{data.enddate}}" min="{{data.startdate}}" placeholder="Sales End"></ion-datetime></span>
+              </div>
+            </div>
+  
+      </ion-list>
+  </ion-content>
+  
+  <ion-footer class="botom">
+      <ion-toolbar color="primary">
+          <ion-buttons>
+              <button ion-button icon-right color="royal" (click)="saveticket();">Save Tickets</button>
+            </ion-buttons>
+      </ion-toolbar>
+  </ion-footer>

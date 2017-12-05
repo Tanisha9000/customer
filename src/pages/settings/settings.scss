@@ -1,0 +1,23 @@
+page-settings {
+.signin_btn {
+        width: 100%;
+        float: left;
+        margin-top: 8px !important;
+        text-transform: uppercase;
+        border-radius: 0px;
+        padding: 0;
+        margin: 0;
+        background: #3979ed;
+    }
+    .signin_btn span{
+        color: #fff !important;
+        font-size: 16px !important;
+        font-weight: bold !important;
+    }
+        .gap {
+        padding: 18px;
+        float: left;
+        width: 100%;
+        padding-top: 3px;
+    }
+}

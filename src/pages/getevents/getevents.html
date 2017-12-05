@@ -1,0 +1,141 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><img width="120px" src="assets/img/logob.png" class="headerimg" /></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background: #f6f6f6;">
+ <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>  
+    <!-- <ion-list class="details"> 
+        <ion-item *ngFor="let events of all_events">
+          <div *ngFor="let event of events">
+              <div (click)="detailPage(event.ID);">
+           <div class="pic"><img [src]='event.Eventimage'></div>
+           <ion-card-content class="name">
+              <h3>{{event.EventStartDate| date:'EE,MMM d,hh:mm a '}}</h3>
+              <h2>{{event.post_title}} </h2>
+              <span>{{event.viewcount}} Views</span>
+              <p ion-long-press [interval]="400" (onPressStart)="pressed()">{{event.Eventvanue}}</p>
+           
+            </ion-card-content>
+            </div>
+    
+          </div>
+          <div class="hashtag likecomm">
+              <div class="button_left">
+    
+                <div class="heart_img">
+                  <object class="colorchange" data="assets/img/icn_heartactive.svg" type="image/svg+xml" *ngIf="events.is_liked==0" (click)="poplike(event.ID,1)"> 
+                 
+                  <img class="img2" src="assets/img/icn_heartactive.svg" />
+                </object>
+    
+                <object class="colorchange" data="assets/img/icn_heart.svg" type="image/svg+xml" *ngIf="events.is_liked==1" (click)="poplike(event.ID,0)">
+                  
+                   <img class="img2" src="assets/img/icn_heart.svg" />
+                 </object>
+                
+                </div>
+
+
+                <button ion-button icon-left clear small class="icnb" (click)="shareInfo()">
+                    <ion-icon style="color:#444;" name="ios-paper-plane-outline"></ion-icon>
+                  </button>
+
+            <button ion-button clear small class="icn" *ngIf="events.is_liked==0" (click)="poplike(events.ID,1)" >
+           
+              <div (click)="detailPage(events.ID);" class="tag">
+                  <span class="hash" *ngIf="events.catageories.length > 0"> 
+                      <ng-container *ngFor="let event1 of events.catageories">
+                    #{{event1}}
+                  </ng-container>
+                  </span>
+                </div>
+              </button>
+
+              <div class="rightbutton">
+                  <button [hidden]="events.rsvpticket.length==0 || events.wooticket.length==0" ion-button class="tix" (click)="detailPage(events.ID);">GET TIX</button>
+              </div>
+              
+           
+          </div>
+
+        </div>
+        </ion-item>
+      </ion-list>
+
+       <ion-infinite-scroll *ngIf="hasMoreData" (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content
+            loadingText="Loading" loadingSpinner="dots"></ion-infinite-scroll-content>
+       </ion-infinite-scroll> -->
+      
+       <ion-list class="details"> 
+         <ion-item *ngFor="let event of all_events">
+             <div *ngFor="let event1 of event">
+               <div >
+              <div (click)="detailPage(event1.ID);" class="pic"><img [src]='event1.Eventimage' ></div>
+              <ion-card-content class="name">
+                 <h3>{{event1.EventStartDate| date:'EE,MMM d,hh:mm a '}}</h3>
+                 <h2 (click)="detailPage(event1.ID);">{{event1.post_title}} </h2>
+                 <span>{{event1.viewcount}} Views</span>
+                 <p ion-long-press [interval]="400" (onPressStart)="pressed(event1.vanueaddress)">{{event1.Eventvanue}}</p>
+              
+               </ion-card-content>
+               </div>
+       
+               <div class="hashtag likecomm">
+                 <div class="button_left">
+       
+                  <div class="heart_img" [hidden]="showlike==0">
+                    
+                        <object class="colorchange" *ngIf="event1.is_liked==0" (click)="poplike(event1.ID,1, $event)" data="assets/img/icn_heartactive.svg" type="image/svg+xml"  > 
+                          
+                           <!-- <img class="img2" src="assets/img/icn_heartactive.svg" /> -->
+                         </object>   
+                
+                    <object *ngIf="event1.is_liked==1"  (click)="poplike(event1.ID,0, $event)" class="colorchange" data="assets/img/icn_heart.svg" type="image/svg+xml" >
+                         <!-- <img class="img2" src="assets/img/icn_heart.svg" /> -->
+                     </object>
+                  
+                    </div>
+       
+                       <button [hidden]="showlike==0" ion-button icon-left clear small class="icnb" (click)="shareInfo(event1.guid)">
+                           <ion-icon style="color:#444;" name="ios-paper-plane-outline"></ion-icon>
+                         </button>
+       
+                   <button ion-button clear small class="icn" *ngIf="event1.is_liked==0" (click)="poplike(event1.ID,1)" >
+                     <!-- <ion-icon style="padding: 0;" name="md-heart"></ion-icon> -->
+                     <!-- <img src="assets/img/icn_heart.svg" /> -->
+       
+                     <!-- <ng-include  src="'assets/img/icn_heart.svg'"></ng-include>  -->
+                    </button>
+                    <div  class="tag">
+                      <span class="hash" *ngIf="event1.catageories.length > 0" (click)="discover();"> 
+                          <ng-container *ngFor="let event2 of event.catageories">
+                        #{{event2}}
+                      </ng-container>
+                      </span>
+                    </div>
+                    <div class="rightbutton">
+                      <button *ngIf ="event1?.rsvpticket?.length > 0 || event1?.wooticket?.length > 0" ion-button class="tix" (click)="detailPage(event1.ID);">GET TIX</button>
+                  </div>
+                  
+                 </div>
+               </div>
+            
+              </div>
+       
+           </ion-item>
+         </ion-list>
+       
+</ion-content>

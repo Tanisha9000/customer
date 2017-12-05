@@ -1,0 +1,215 @@
+<!-- <div class="position"> -->
+
+    <form #heroForm="ngForm" novalidate class="form_box">
+ <ion-header>
+  <ion-navbar hideBackButton>
+          <ion-buttons primary class= "action">
+              <button (click)="confirm()" ion-button color="black" clear >
+                  Cancel
+                </button>
+            </ion-buttons>
+         <ion-title>
+        Edit Profile
+      </ion-title>
+      <ion-buttons end primary class= "action">
+      <button [disabled]="!heroForm.valid" (click)="updateprofile(heroForm)"  ion-button color="black" outline>
+          Done
+        </button>
+      </ion-buttons>
+
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content style="background: #f0f0f0;">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>  
+  <div   class="pic" >
+    <ion-list style="height:65px;" [innerHTML]='userimagee'>
+    </ion-list>
+   
+  <button ion-button clear color="primary" class="change" uplad ion-button block *ngIf="!srcImage" (click)="presentActionSheet()">Change Profile Photo</button>
+  
+      <!-- <button  [disabled]="!heroForm.valid" class="position_done" type="submit" (click)="updateprofile(heroForm)"  ion-button color="black" outline>
+        Done
+      </button>  -->
+    <ion-list class="edit" >
+    
+      <ion-item>
+            <ion-icon name="" item-start>
+            <img style="min-width:20px !important;" class="img2" src="assets/img/card.png" />
+          </ion-icon> 
+      
+        <ion-input type="text" placeholder="Full Name*" [(ngModel)]="userInfo.fname" name="fname" #fname="ngModel"
+                       type="text" id="fname"  spellcheck="false" autocapitalize="off" required></ion-input>
+      </ion-item>
+      <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="fname.errors && (fname.dirty || fname.touched)">
+       <div [hidden]="!fname.errors.required" >
+         Field is required
+        </div></div></ion-label>
+      
+      <ion-item>
+          <ion-icon name="" item-start>
+              <img class="img2" src="assets/img/user1.png" />
+            </ion-icon> 
+        <ion-input type="text" placeholder="UserName*" [(ngModel)]="userInfo.username" name="username" #usernamename="ngModel"
+                       type="text" id="username" [readonly]="true" spellcheck="false" autocapitalize="off"></ion-input>
+      </ion-item>
+     
+       <ion-item>
+        <ion-icon name="ios-flag-outline" item-start></ion-icon>
+        <ion-input  placeholder="Website" [(ngModel)]="userInfo.website" name="website" #website="ngModel"
+                       type="url" id="url" spellcheck="false" autocapitalize="off" pattern="http?://.+" ></ion-input>
+      </ion-item>
+      <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="website.errors && (website.dirty || website.touched)">
+       <!-- <div [hidden]="!website.errors.required" >
+         Field is required
+        </div> -->
+        <div [hidden]="!website.errors.pattern" class="alert alert-danger">
+          Enter a valid Website Address
+        </div>
+      </div>
+    </ion-label>
+    
+      <ion-item>
+          <ion-icon name="" item-start>
+              <img class="img2" src="assets/img/list.png" />
+            </ion-icon> 
+        <ion-input  type="text" placeholder="This is my bio*"   [(ngModel)]="userInfo.description" name="description" #description="ngModel"
+                        spellcheck="false" required autocapitalize="off"></ion-input>
+      </ion-item>
+      <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="description.errors && (description.dirty || description.touched)">
+       <div [hidden]="!description.errors.required" >
+         Field is required
+        </div></div></ion-label>
+    
+      <ion-item>
+          <ion-icon name="" item-start>
+              <img class="img2" src="assets/img/instagram.png" />
+            </ion-icon> 
+        <ion-input type="text" placeholder="Instagram Profile" [(ngModel)]="userInfo.instagram" name="instagram" #instagram="ngModel"
+                      type="text" id="insta" spellcheck="false" autocapitalize="off"></ion-input>
+      </ion-item>
+      <!-- <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="instagram.errors && (instagram.dirty || instagram.touched)">
+       <div [hidden]="!instagram.errors.required" >
+         Field is required
+        </div></div></ion-label> -->
+    
+      <ion-item>
+          <ion-icon name="" item-start>
+              <img class="img2" src="assets/img/facebook.png" />
+            </ion-icon> 
+        <ion-input type="text" placeholder="Connect to Facebook" [(ngModel)]="userInfo.facebook" name="facebook" #facebook="ngModel"
+                      type="text" id="facebook" spellcheck="false" autocapitalize="off"></ion-input>
+      </ion-item>
+      <!-- <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="facebook.errors && (facebook.dirty || facebook.touched)">
+       <div [hidden]="!facebook.errors.required" >
+         Field is required
+        </div>
+      </div>
+    </ion-label> -->
+    
+    <h4 class="head">private information</h4>
+        <div class="dff">
+          <ion-item>
+            <ion-icon name="" item-start>
+                <img style="min-width:20px !important;" class="img2" src="assets/img/message.png" />
+              </ion-icon> 
+        <ion-input type="text" placeholder="Email Address" [(ngModel)]="userInfo.email" name="email" #email="ngModel"  [readonly]="true" ></ion-input>
+    
+      </ion-item>
+      <button class="change_email" (click)="changeemail(userInfo.email)">change email</button>
+      </div>
+      <!-- <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+      <div [hidden]="!email.errors.required" class="alert alert-danger">
+           Email Address is required
+          </div>
+           <div [hidden]="!email.errors.pattern" class="alert alert-danger">
+            Enter a valid Email Address
+          </div>
+      </div> -->
+       <!-- <ion-item> -->
+        <ion-item>
+          <ion-icon ios="ios-phone-portrait" md="ios-phone-portrait" item-start></ion-icon>
+          <ion-input type="text" placeholder="Phone Number*"  [(ngModel)]="userInfo.number" name="number" #number="ngModel" pattern='[0-9]+' minlength='8' maxlength="15" required></ion-input>
+        </ion-item>
+          <ion-label class="alert alert-danger" color="danger">
+       
+                 <div *ngIf="number.errors && (number.dirty || number.touched)">
+                 <div [hidden]="!number.errors.required" >
+                   Field is required
+                  </div>
+                  <div [hidden]="!number.errors.pattern" >
+                    Enter a valid Phone Number
+                  </div>
+                   <div [hidden]="!number.errors.maxlength" >
+                   Maximum 15 digit number is accepted
+                  </div>
+              </div>
+          </ion-label>
+  
+        <!-- <div *ngIf="number.errors && (number.dirty || number.touched)" class="alert alert-danger">
+           <div [hidden]="!number.errors.required" class="alert alert-danger">
+             phone number is required
+            </div>
+             <div [hidden]="!number.errors.pattern" class="alert alert-danger">
+              Enter a valid Phone Number
+            </div>
+        </div> -->
+       
+      <!-- </ion-item> -->
+        
+      <ion-item>
+        <ion-label> <ion-icon ios="ios-transgender" md="ios-transgender" item-start></ion-icon>Gender</ion-label>
+        <!-- <ion-input type="text" placeholder="Male" [(ngModel)]="userInfo.gender" name="gender" #gender="ngModel"
+                       type="text" id="gender" spellcheck="false" autocapitalize="off"></ion-input> -->
+         <ion-select [(ngModel)]="userInfo.gender" name='gender' #gender='ngModel' required>
+               <ion-option value="male">Male</ion-option>
+               <ion-option value="female">Female</ion-option>
+               <ion-option value="ts">Trans</ion-option>
+               <ion-option value="uni">Unicorn</ion-option>
+               <ion-option value="not">Prefer not to say</ion-option>
+          </ion-select>              
+      </ion-item>
+     <!-- <ion-item>
+        <ion-icon ios="ios-transgender" md="ios-transgender" item-start></ion-icon>
+        <ion-input type="text" placeholder="identity" [(ngModel)]="userInfo.identity" name="identity" #identity="ngModel"
+          type="text" id="identity" spellcheck="false" autocapitalize="off"></ion-input>             
+      </ion-item> -->
+    
+      <ion-item style="border-bottom: none;"> 
+        <ion-label> <ion-icon name="star-outline" style="font-size: 2.8rem;"></ion-icon> I identify as</ion-label>
+        <ion-select [(ngModel)]="userInfo.identity" name="identity" #identity="ngModel" required>
+          <ion-option value="nes">Gay</ion-option>
+          <ion-option value="n64">Straight</ion-option>
+          <ion-option value="ps">Bi</ion-option>
+          <ion-option value="genesis">Queer</ion-option>
+        </ion-select>
+        <!-- <p><span tooltip="We use this information to help you discover events that may be of interest to you">Why do you ask?</span></p> -->
+       
+      </ion-item> 
+    </ion-list>
+    <button class="inputbtn" ion-button clear tooltip="We use this information to help you discover events that may be of interest to you" positionV="top" arrow>
+        Why do you ask?
+    </button>
+    
+      </div>
+    
+    </ion-content>
+
+  </form>   
+  
+  
+  
+  
+   

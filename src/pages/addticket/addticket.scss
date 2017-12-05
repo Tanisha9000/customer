@@ -1,0 +1,143 @@
+page-addticket {
+    .location {
+        float:left;
+        width:100%;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #dbdbdb !important;
+        border-top:1px solid #dbdbdb !important;
+    }
+    .datetime-ios{
+        padding: 5px 8px 5px 0px;
+    }
+    
+    
+              .action .button-inner{
+                  font-size: 16px;
+color: #3979ed;
+              }
+              .back-button .back-button-icon{
+                  display: none;
+              }
+              .toolbar-ios ion-title{
+                  padding:0px;
+              }
+              .toolbar-title-ios{
+                text-align: center;
+                font-size: 1.7rem;
+                font-weight: 600;
+                color: #000;
+                pointer-events: auto;
+                position: absolute;
+                top: 30px !important;
+                width: 100%;
+                left: 0;
+                z-index: -1
+}
+              
+              .toolbar-content .toolbar-ios ion-title{
+                  position: unset !important;
+              }
+
+    .location .text-input {margin:0px;
+        font-size: 14px;
+        font-family: Opensans-Regular;
+    }
+    
+    .location .item{
+        padding-left: 8px;
+        border-bottom: 0px !important;
+        border-top:0px !important;
+        min-height: 32px;
+    }
+    
+    .location .item-inner{
+        margin-right: 8px;
+        padding: 0 !important;
+    }
+    
+    .heading {
+        float: left;
+        width: 100%;
+        margin: 0;
+        font-size: 13px;
+        font-family: Opensans-Regular;
+        padding-left: 8px;
+        color:#728198;
+        margin: 8px 0;
+    }
+
+    .sale {
+        float: left;
+        width: 50%;
+    }
+
+    .sale .item-inner {
+        border: 0 !important;
+    }
+    .time {
+        float: left;
+        width: 99%;
+        border-bottom: 1px solid #dbdbdb;
+        margin: 0 8px;
+        padding: 5px 0;
+        background: #fff;
+    }
+
+    .lft {
+        float: left;
+        width: 50%;
+      }
+      .lft h6 {
+        margin: 0;
+        text-transform: uppercase;
+        font-family: Opensans-Semibold;
+        font-size: 10px;
+        color: #728198;
+      }
+      .lft span {
+        color: #222222;
+        font-family: Opensans-Regular;
+        font-size: 12px;
+        float: left;
+        width: 100%;
+    }
+    
+    .lft button{
+        float: left;
+        width: auto;
+    }
+    .botom .toolbar {
+        min-height: 44px;
+    }
+
+    .botom ion-buttons button{
+        width: 100%;
+        float: left;
+        font-family: Opensans-Regular;
+        text-transform: capitalize;
+    }
+  
+    /****Input****/
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #c5c5d1 !important;
+        opacity: 1 !important;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+        color: #c5c5d1 !important;
+        opacity: 1 !important;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+        color: #c5c5d1 !important;
+        opacity: 1 !important;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+        color: #c5c5d1 !important;
+        opacity: 1 !important;
+      }
+
+      /****Input****/
+
+
+}
+

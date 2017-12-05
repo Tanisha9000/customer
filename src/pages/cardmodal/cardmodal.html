@@ -1,0 +1,78 @@
+<ion-header>
+      <ion-navbar>   
+      <ion-title>Add a Card</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+
+    <div class="pick">
+      <img src="assets/img/credit-card.png">
+    </div>
+
+      <form #billForm='ngForm' (ngSubmit)="updatedata(billForm)" class="frm">
+      <ion-list class="credit">
+          <ion-label>CARD DETAILS</ion-label>
+        <div class="fst">
+            <img src="assets/img/icn-credit-card.svg">
+
+             <ion-item>
+             <ion-input type="text" placeholder="Card number" [(ngModel)]="cards.number" name="number" maxlength="16" required></ion-input>
+          </ion-item>
+          </div>
+
+          <!-- <div class="frth">
+              <ion-item>
+                <ion-select  required [(ngModel)]="cards.expMonth" name="expMonth" placeholder="MM">
+                    <ion-option *ngFor="let monthesss of monthes" [value]="monthesss">{{monthesss}}</ion-option>
+                </ion-select>
+             </ion-item>
+             </div> -->
+
+          <div class="thrd">
+         <ion-item>
+             <ion-datetime displayFormat="MM/YY" pickerFormat="MM YY"  placeholder="MM/YY" max="2075-12-31"  [(ngModel)]="cards.expYearr" name="expYearr" required></ion-datetime>
+          </ion-item> 
+          </div>
+
+         <div class="sec">
+            <ion-item>
+                <ion-input type="number" placeholder="CVC" [(ngModel)]="cards.cvc" name="cvc" maxlength="3" required></ion-input>
+            </ion-item>
+            </div>
+    </ion-list>
+
+       <ion-label>NAME AS APPEARS ON CARD </ion-label>
+       <ion-item class="name">
+        <ion-input type="text" [(ngModel)]="cards.name" name="name" placeholder="Name on card" required ></ion-input>
+      </ion-item>
+     
+      <ion-label>ADDRESS ASSOCIATED WITH CARD</ion-label>
+      <div class="bb">
+      <ion-item>
+       <ion-input type="text" [(ngModel)]="cards.address_line1" name="address_line1" placeholder="18 Main St Apt 5" required ></ion-input>
+      </ion-item>
+      <ion-item class="ff">
+        <ion-input type="text" [(ngModel)]="cards.address_city" name="address_city" placeholder="City" required ></ion-input>
+      </ion-item>
+      <ion-item class="tf">
+        <ion-input type="text" [(ngModel)]="cards.address_state" name="address_state" placeholder="State" required ></ion-input>
+      </ion-item>
+      <ion-item class="tw">
+        <ion-input type="number" [(ngModel)]="cards.postal_code" name="postal_code" placeholder="ZIP" required ></ion-input>
+      </ion-item>
+      </div>
+
+      <h4>Billing address outside of United States?</h4>
+
+      <div class="aa">
+      <input [disabled]="!billForm.valid" type="submit" ion-button class="submit_btn" small value="Done"> 
+     </div>
+
+      </form>
+     
+  </ion-content>
+  
+    
+   
+

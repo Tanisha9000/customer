@@ -1,0 +1,194 @@
+<ion-header>
+  <ion-navbar>
+       <ion-title>Get Tickets</ion-title>
+    </ion-navbar>
+ </ion-header>
+   <form  #heroForm="ngForm"  name= "form" style="height: 100%;">
+  <ion-content>
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>  
+    
+
+      <div class="seven">
+        <div class="evnt" *ngFor="let eventsss of details">
+          <h2>{{eventsss.post_title}}</h2>
+          <h4>{{eventsss.Eventvanue}} <span>{{eventsss.vanueaddress}}</span></h4>
+          <p>{{eventsss.EventStartDate}} - {{eventsss.EventEndDate}}</p>
+        </div>
+  
+        <ion-grid style="padding: 0px;">
+          <ion-row class="qty">
+            <ion-col col-3>Qty</ion-col>
+            <ion-col col-3>Price</ion-col>
+            <ion-col col-6>Ticket Type</ion-col>
+          </ion-row>
+          <ion-row class="vp" *ngFor="let event of ticketss">
+            <ion-col col-3>
+              <ion-list style="margin: 0px;">
+                <ion-item class="slct">
+                  <ion-select [(ngModel)]="data?.select[event.post_id]" (ionChange)="pricecal(event.post_id,event.price,data?.select[event.post_id],event.ticket_name, event.ticket_tyoe)" name="quantity_{{event.post_id}}" required>
+                    <ion-option value="0">0</ion-option>
+                    <ion-option value="1">1</ion-option>
+                    <ion-option value="2">2</ion-option>
+                    <ion-option value="3">3</ion-option>
+                    <ion-option value="4">4</ion-option>
+                    <ion-option value="5">5</ion-option>
+                    <ion-option value="6">6</ion-option>
+                    <ion-option value="7">7</ion-option>
+                    <ion-option value="8">8</ion-option>
+                    <ion-option value="9">9</ion-option>
+                    <ion-option value="10">10</ion-option>
+                    <ion-option value="11">11</ion-option>
+                    <ion-option value="12">12</ion-option>
+                    <ion-option value="13">13</ion-option>
+                    <ion-option value="14">14</ion-option>
+                    <ion-option value="15">15</ion-option>
+                    <ion-option value="16">16</ion-option>
+                    <ion-option value="17">17</ion-option>
+                    <ion-option value="18">18</ion-option>
+                    <ion-option value="19">19</ion-option>
+                    <ion-option value="20">20</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+            <ion-col col-3><span>${{event.price}}</span></ion-col>
+            <ion-col col-6><span>{{event.ticket_name}}</span></ion-col>
+            <ion-col col-12 style="padding-top: 0px;padding-bottom: 0px;">
+              <!-- <span>{{event.remaning}} remain</span> -->
+              <p>{{event.detail}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  
+        <ion-item-group class="promo">
+          <ion-item-divider color="light">
+            <ion-input type="text" [(ngModel)]="data1.promo" name='promo' placeholder="Enter Promo Code" class="inpt"></ion-input>
+            <button [disabled]="cartproduct.length == 0" ion-button small clear item-end (click)="apply_promo(data1.promo)">
+              Apply
+           </button> 
+          </ion-item-divider>
+        </ion-item-group>
+  
+        <ion-item-group>
+          <!-- <ion-item-divider color="light" style=" border-bottom: 1px solid #e5e5e6!important;">YOUR INFO 
+            <button ion-button small clear item-end (click)="signout();">
+               Sign Out
+            </button> 
+          </ion-item-divider>
+          <div>
+          <ion-label>enter emails</ion-label>
+          </div> -->
+
+          <ion-item-divider color="light" style=" border-bottom: 1px solid #e5e5e6!important;">MORE INFO</ion-item-divider>
+          <h3 class="how">How did you hear about this event?</h3>
+          <ion-item class="know" >
+            <ion-label>OutBuzz</ion-label>
+            <ion-checkbox color="dark"></ion-checkbox>
+          </ion-item>
+          <ion-item class="know" >
+            <ion-label>Promoter email</ion-label>
+            <ion-checkbox color="dark"></ion-checkbox>
+          </ion-item>
+          <ion-item class="know" >
+           <ion-label>Banner ad</ion-label>
+           <ion-checkbox color="dark"></ion-checkbox>
+            </ion-item>
+          <ion-item class="know" >
+           <ion-label>Social Media</ion-label>
+           <ion-checkbox color="dark"></ion-checkbox>
+          </ion-item>
+
+        </ion-item-group>
+  <div *ngIf= "x == 1">
+  <ion-item-divider color="light" style=" border-bottom: 1px solid #e5e5e6!important; border-top: 1px solid #e5e5e6!important;">PAYMENT INFO
+      <button class="chnge" ion-button small clear item-end (click)="presentCardModal()">Change <ion-icon name="arrow-forward"></ion-icon> </button>
+  </ion-item-divider>
+
+  <div *ngIf="cardss" class="crd">
+  <div class="credit">
+    <span [hidden]="cardss.length==0">
+      <ion-item-group>
+      <ion-list radio-group [(ngModel)]="data1.card" name="card" required>
+      <div *ngFor="let cards of cardss" class="main" >
+        <ion-icon class="card0" item-start name="ios-card"></ion-icon>
+        <ion-item style="width:auto;float:left">
+         <ion-label class="abc">Credit Card **** {{cards.last4}}</ion-label>
+         <ion-radio [value] ='cards.id'></ion-radio>
+         <button ion-button small clear item-end (click)="deletecard(cards.customer, cards.id);">Delete</button>
+       </ion-item>
+      </div>
+     </ion-list>
+    </ion-item-group>
+    </span>
+  </div>
+  </div>
+  </div>
+
+  <div *ngIf= "x == 0" class="crd1">
+    <ion-item-divider color="light" style=" border-bottom: 1px solid #e5e5e6!important; border-top: 1px solid #e5e5e6!important;">Enter Payment Info
+    <button ion-button small clear item-end (click)="presentCardModal()">
+      Add Card <ion-icon name="arrow-forward"></ion-icon>
+     </button>
+     </ion-item-divider>
+   <div *ngIf="cardss" class="crd">
+      <div class="credit">
+      <span [hidden]="cardss.length==0">
+      <ion-item-group>
+      <ion-list radio-group [(ngModel)]="data1.card" name="card" required>
+      <div *ngFor="let cards of cardss" class="main" >
+        <ion-icon class="card0" item-start name="ios-card"></ion-icon>
+        <ion-item style="width:auto;float:left">
+         <ion-label class="abc">Credit Card **** {{cards.last4}}</ion-label>
+         <ion-radio [value] ='cards.id'></ion-radio>
+         <button ion-button small clear item-end (click)="deletecard(cards.customer, cards.id);">Delete</button>
+       </ion-item>
+      </div>
+     </ion-list>
+    </ion-item-group>
+    </span>
+  </div>
+  </div>
+  </div>
+      <!-- <button ion-button full color="secondary" ion-button block class="submit"  (click)="presentProfileModal()" >Add Billing Details</button>  -->
+  
+        <ion-item-group>
+          <ion-item-divider color="light" style=" border-bottom: 1px solid #e5e5e6!important; border-top: 1px solid #e5e5e6!important;">SUMMARY</ion-item-divider>
+          <ion-list style="margin-bottom: 8px;" *ngFor="let task of cartproduct">
+            <ion-item class="tic" *ngIf="task.quantity != 0">
+              {{task.ticket_name}} X {{task.quantity}}
+              <ion-icon name="" item-end>${{task.quantity * task.price}}</ion-icon>
+            </ion-item>
+
+             <!-- <ion-item class="tic">
+                Processing fees
+                <ion-icon name="" item-end>${{0}}</ion-icon>
+              </ion-item> -->
+
+          </ion-list>
+        </ion-item-group>
+        <ion-item class="tic">
+          Coupon Amount
+         <ion-icon name="" item-end>${{coupon}}</ion-icon>
+        </ion-item> 
+        <ion-item class="tic">
+            Total
+             <ion-icon name="" item-end>${{price}}</ion-icon>
+        </ion-item>
+    </div>
+<!--     <button [disabled]="!heroForm.valid" (ngSubmit)="pay_new(heroForm)" ion-button full color="secondary" ion-button block class="submit"  type="submit">Pay ${{price}} Securely</button>-->
+<!--</form>-->
+   </ion-content>
+  <ion-footer>
+<!--      <form  #heroForm="ngForm"  name= "form">-->
+    <ion-toolbar>
+    <button  (click)="pay_new(heroForm)" ion-button full color="secondary" ion-button block class="submit">Pay ${{price}} Securely</button>
+    </ion-toolbar>
+   </ion-footer>
+</form> 

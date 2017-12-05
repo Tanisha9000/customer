@@ -1,0 +1,79 @@
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>Edit Event</ion-title>
+      </ion-navbar>
+    
+</ion-header>
+    
+    <ion-content style="background: #fafafa;">
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>  
+      <ion-list class="pic">
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="data.eventimage">
+          </ion-avatar>
+          <button ion-button clear color="primary" class="change" uplad ion-button block *ngIf="!srcImage" (click)="presentActionSheet()">Change Image</button>
+        </ion-item>
+      </ion-list>
+     
+      <ion-list class="titles">
+          <ion-item>
+            <ion-input type="text" placeholder="Event Title" [(ngModel)]="data.post_title" name="post_title" ></ion-input>
+          </ion-item>
+      </ion-list>
+    
+      <ion-list class="location">
+       <div class="time">
+          <div class="lft">
+            <h6>Starts</h6>
+             <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="data.eventstartdate" name= "eventstartdate"  max="2075-12-31" min="{{data.eventstartdate}}" (ngModelChange)="setenddate()" placeholder="MM/DD/YYYY HH:MM"></ion-datetime>
+          </div>
+        
+          <div class="lft rt">
+            <h6>Ends</h6>
+             <ion-datetime [disabled]="bit==1" displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="data.eventenddate" name= "eventenddate" max="2075-12-31" min="{{data.eventenddate}}" placeholder="MM/DD/YYYY HH:MM"></ion-datetime> 
+          </div>
+         
+        </div>
+         <ion-list class="loc">
+            <ion-item  *ngIf="vanues !=null" class="entr">
+              <ion-select [(ngModel)]="data.eventvaneid" #eventvaneid="ngModel" placeholder="{{data.eventvaneid}}" >
+                  <!-- <ion-option  [value]="Location">Location</ion-option> -->
+                <ion-option *ngFor="let item of vanues" [value]="item.ID">{{item?.post_name}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          <ion-item>
+              <ion-input type="text" placeholder="Cost" [(ngModel)]="data.eventcost" name= "eventcost"></ion-input>
+          </ion-item>
+         <ion-item class="area">
+            <textarea placeholder="About Event" [(ngModel)]="data.post_content" name="post_content" ></textarea>
+          </ion-item>
+    </ion-list>
+    <!-- <ion-list style="margin-bottom:0px;"  class="clk" *ngIf="name !=undefined">
+      <ion-select  placeholder="Category" [(ngModel)]="data.categoryy" name ='categoryy'>
+           <ion-option *ngFor="let category of objectdata(name)" >{{name[category].name}}</ion-option> 
+      </ion-select>
+    </ion-list> -->
+    
+    <!-- <ion-list class="location">
+      <ion-item>
+        <ion-input type="text" placeholder="User id" [(ngModel)]="data.user_id" name ="user_id"></ion-input>
+      </ion-item>
+    </ion-list> -->
+    <ion-footer class="botom">
+      <ion-toolbar color="primary">
+          <ion-buttons>
+              <button ion-button icon-right color="royal" (click)="save();" >Save Changes</button>
+            </ion-buttons>
+      </ion-toolbar>
+  </ion-footer>
+    </ion-content>

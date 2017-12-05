@@ -1,0 +1,40 @@
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title></ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content class="int_edt" style="background: url(assets/img/bg.jpg) no-repeat center fixed; 
+      background-size: cover;">
+     <div class="logo"><img src="assets/img/logo.png" /></div>
+    
+    
+    
+     <form  #changeForm="ngForm" style="float:left;width:100%;padding:16px;">
+    
+      <ion-list class="log">
+         <!--<ion-item>
+        <ion-input type="email" placeholder="Email" [(ngModel)]="data.email" name="email" #email="ngModel"  required pattern='^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$'></ion-input>
+      </ion-item>
+<div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+    <div [hidden]="!email.errors.required" class="alert alert-danger">
+         Email Address is required
+        </div>-->
+        <ion-item>
+          <ion-input type="email" placeholder="Email"  [(ngModel)]="data.email" name="email" #email="ngModel"  required pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"></ion-input>
+        </ion-item>
+        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+           <div [hidden]="!email.errors.required  " class="alert alert-danger">
+         Email is required
+            </div>
+        </div>
+      
+      </ion-list>
+      <button [disabled]="!changeForm.valid" ion-button full class="submit" type="submit" (ngSubmit)="forgot(changeForm)">Submit</button>
+     </form>
+    
+    </ion-content>
+

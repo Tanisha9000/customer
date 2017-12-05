@@ -1,0 +1,118 @@
+
+     <ion-header>
+      <ion-navbar color="navyb" text="center" hideBackButton >
+       <ion-buttons start left  primary class= "action">
+        <button ion-button color="black" clear (click)="previous();">
+          Cancel 
+        </button>
+        </ion-buttons>
+        <ion-buttons end>
+          
+        </ion-buttons>
+        <ion-title>Create Event</ion-title> 
+      </ion-navbar>
+</ion-header>
+    
+  
+    <ion-content style="background: #fafafa;">
+        <form #addform='ngForm' (ngSubmit)="add(addform)">  
+      <ion-list class="pic myeventdiv">
+        <ion-item (click)="presentActionSheet()" style="padding:0;">
+          <img [src]="data.eventimage" alt="eventavatar">
+         <!-- <button ion-button clear color="primary" class="change" uplad ion-button block *ngIf="!srcImage" >Change Image</button> -->
+        </ion-item>
+      </ion-list>
+         <ion-list class="titles">
+          <ion-item>
+            <ion-input type="text" placeholder="Event Title" [(ngModel)]="data.post_title" name="post_title"  #post_title="ngModel" required></ion-input>
+          </ion-item>
+      </ion-list>
+    
+      <ion-list class="location">
+        <div class="time">
+          <div class="lft">
+            <h6>Starts</h6>
+             <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="data.eventstartdate" name= "eventstartdate"  #eventstartdate="ngModel"  max="2075-12-31" min="{{data.eventstartdate}}" (ngModelChange)="setenddate()" placeholder="MM/DD/YYYY HH:MM" required></ion-datetime>
+          </div>
+        
+          <div class="lft rt">
+            <h6>Ends</h6>
+             <ion-datetime [disabled]="bit==1" displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="data.eventenddate" name= "eventenddate"  #eventenddate="ngModel" max="2075-12-31" min="{{data.eventenddate}}" placeholder="MM/DD/YYYY HH:MM" required></ion-datetime> 
+          </div>
+         
+        </div>
+       
+        <ion-list style="margin:0;">
+                    <ion-searchbar   
+                     [(ngModel)]="autocomplete.query" 
+                     name = "location_name"
+                     [showCancelButton]="true" 
+                     (ionInput)="updateSearch()" 
+                     (ionCancel)="dismiss()"
+                     placeholder="Enter location">
+                     </ion-searchbar>
+                     
+                   <!-- <ion-list> -->
+                      <ion-item *ngFor="let place of autocompleteItems" 
+                      (click)="selectPlace(place)">
+                      {{ place.description }}
+                      </ion-item>
+                    <!-- </ion-list> -->
+                </ion-list>
+
+                <ion-list class="loc">
+                  <ion-item  *ngIf="vanues !=null" class="entr">
+                    <ion-select [(ngModel)]="data.eventvaneid" #eventvaneid = "ngModel" name="eventvaneid" placeholder="Venue">
+                        <!-- <ion-option  [value]="Location">Location</ion-option> -->
+                      <ion-option *ngFor="let item of vanues " [value]="item.ID">{{item?.post_name}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-list>
+
+          <ion-item>
+              <ion-input type="text" placeholder="Cost" [(ngModel)]="data.eventcost" name= "eventcost"  #eventcost="ngModel" required></ion-input>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-input type="text" placeholder="Location" [(ngModel)]="data.eventvaneid" name= "eventvaneid"></ion-input>
+          </ion-item> -->
+        
+          <ion-item class="area">
+            <textarea placeholder="About event..." [(ngModel)]="data.post_content" name="post_content" #post_content="ngModel" required></textarea>
+          </ion-item>
+    </ion-list>
+    <ion-list style="margin-bottom:0px;"  class="clk" *ngIf="name !=undefined">
+      <ion-select  placeholder="Event category" [(ngModel)]="data.categoryy" name ='categoryy' #categoryy="ngModel" required>
+           <ion-option *ngFor="let category of objectdata(name)" >{{name[category].name}}</ion-option> 
+      </ion-select>
+    </ion-list>
+    
+    <ion-list class="location">
+    
+      <ion-item>
+        <ion-input type="text" placeholder="Add a tag like mixer, circuit, drag, karaoke, etc." [(ngModel)]="data.tag" name ="tag" #tag="ngModel" required></ion-input>
+      </ion-item>
+    </ion-list>
+ 
+    <h3 class="heading">Event Tickets</h3>
+    
+    <div class="ticket" >
+    <ion-grid *ngFor="let items of eventsticket1">
+      <ion-row>
+        <ion-col col-4>{{items.post_title}}</ion-col>
+        <ion-col col-4 >{{items.post_description}}</ion-col>
+        <ion-col col-2 >${{items.price}}</ion-col>
+        <ion-col col-2>{{items.stock}}</ion-col>
+      </ion-row>
+    </ion-grid>
+     <button [disabled]="!addform.valid" ion-button small type="submit"  style="margin-bottom:0px;margin-left: 8px;">Add Ticket</button>
+    </div>
+       </form>
+    </ion-content>
+    
+    <ion-footer class="botom">
+      <ion-toolbar color="primary">
+          <ion-buttons>
+              <button ion-button icon-right color="royal" (click)="saveticket();" >Create Event</button>
+            </ion-buttons>
+      </ion-toolbar>
+  </ion-footer>
